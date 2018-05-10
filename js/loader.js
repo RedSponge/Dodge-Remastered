@@ -19,6 +19,7 @@ class ExtensionJS {
 var loaders = {};
 
 paths = [
+	"META",
 	"utils/load",
 	"listener/load",
 	"ui/load",

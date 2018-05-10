@@ -12,7 +12,7 @@ class StateGame extends State {
 		enemies = {};
 		ScreenUtils.setBorderRadius(0);
 		this.currentWave = 0;
-		this.waves = [];x
+		this.waves = [];
 		this.waves.push(
 			new Wave(
 				new EnemyWaveComponent(new Enemy(100, 100, 20, 20, "red", 1, 1, true, 100), 100)

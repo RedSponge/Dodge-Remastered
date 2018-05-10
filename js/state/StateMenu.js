@@ -27,6 +27,11 @@ class StateMenu extends State {
 		ctx.fillText("Remastered", WIDTH / 2, HEIGHT / 4 * 1.3);
 		
 		this.startButton.render(ctx);
+		
+		ctx.font = "16px Comic sans ms";
+		ctx.fillStyle = "white";
+		ctx.fillText("Version " + metadata.stage + "-" + metadata.version, WIDTH / 2, HEIGHT - 40);
+		ctx.fillText("Made by " + metadata.authorList, WIDTH / 2, HEIGHT - 20);
 	}
 	
 	getName() {
