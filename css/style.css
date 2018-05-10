@@ -1,0 +1,7 @@
+#canvas {
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;
+	transition: all .5s linear;
+	border-radius: 20px;
+}
