@@ -23,4 +23,35 @@ class Wave {
 		}
 	}
 	
+	addComponent(component) {
+		this.components.push(component)
+	}
+	
+	addEnemy(enemy, timeUntilSpawn) {
+		this.addComponent(new EnemyWaveComponent(enemy, timeUntilSpawn))
+	}
+}
+
+const waves = {
+	
+	"1": () => {
+		wave = new Wave();
+		wave.addComponent(EnemyWaveComponent.delayComponent(100));
+		numEnemies = 10;
+		var enemySize = 20;
+		var speed = 2;
+		for(var i = 0; i < numEnemies; i++) {
+			var enemyX = (i % 2 == 0)?0:WIDTH-enemySize;
+			var enemyY = HEIGHT / numEnemies * i
+			var enemyVX = (i % 2 == 0)?speed:-speed;
+			wave.addEnemy(new Enemy(enemyX, enemyY, enemySize, enemySize, "red", enemyVX, 0, false, 1000), 10)
+		}
+		return wave;
+	},
+	"2": () => {
+		wave = new Wave();
+		wave.addComponent(EnemyWaveComponent.delayComponent(100));
+		wave.addComponent(new TextWaveComponent("Howdy", "32px Comic sans ms", 100, 100, 60, 100, 60, "black", 10));
+		return wave;
+	}
 }

@@ -11,18 +11,13 @@ class StateGame extends State {
 	show() {
 		enemies = {};
 		ScreenUtils.setBorderRadius(0);
-		this.currentWave = 0;
 		this.waves = [];
-		this.waves.push(
-			new Wave(
-				new EnemyWaveComponent(new Enemy(100, 100, 20, 20, "red", 1, 1, true, 100), 100)
-			)
-		);
-		this.waves.push(
-			new Wave(
-				new EnemyWaveComponent(new Enemy(100, 100, 20, 20, "red", 1, 1, true, 2000), 1000)
-			)
-		)
+		for(var wave in waves) {
+			this.waves.push(waves[wave]());
+		}
+		this.currentWave = 0;
+		this.wave = null;
+		console.log("Generate Waves");
 	}
 	
 	tick() {
@@ -33,11 +28,11 @@ class StateGame extends State {
 		if(this.wave != null) {
 			this.wave.tick();
 			if(this.wave.done) {
-				console.log("Done");
 				this.currentWave++;
 				this.wave = this.waves[this.currentWave]
 			}
 		} else {
+			console.log(this.currentWave);
 			this.wave = this.waves[this.currentWave]
 		}
 	}

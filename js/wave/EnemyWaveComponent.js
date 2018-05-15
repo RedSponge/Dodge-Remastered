@@ -1,19 +1,16 @@
 
-class EnemyWaveComponent {
+class EnemyWaveComponent extends WaveComponent{
 	
 	constructor(enemy, timeBeforeSpawning) {
+		super(timeBeforeSpawning);
 		this.enemy = enemy;
-		this.timeBeforeSpawning = timeBeforeSpawning;
-		this.currentTimer = 0
-		this.done = false;
 	}
 	
-	tick() {
-		this.currentTimer++;
-		if(this.currentTimer >= this.timeBeforeSpawning) {
-			this.enemy.spawn()
-			this.done = true;
-		}
+	trigger() {
+		this.enemy.spawn();
 	}
 	
+	static delayComponent(delay) {
+		return new EnemyWaveComponent(new Enemy(-9999999999, -9999999999, 0, 0, "", 0, 0, false, 0), delay);
+	}
 }

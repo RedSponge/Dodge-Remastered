@@ -22,7 +22,6 @@ canvas.onmousemove = mouseMove;
 function mouseMove(event) {
 	Mouse.x = event.clientX - canvas.offsetLeft;
 	Mouse.y = event.clientY - canvas.offsetTop;
-	console.log(Mouse.x);
 }
 
 const Mouse = {

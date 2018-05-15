@@ -38,6 +38,7 @@ function loadAllScripts() {
 
 
 function loadMainDelayed() {
+	return;
 	setTimeout(() => {loadMain()}, 100)
 }
 
