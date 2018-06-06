@@ -11,12 +11,15 @@ class WaveComponent {
 		this.currentTimer++;
 		if(this.currentTimer >= this.timeBeforeExecute) {
 			this.trigger();
-			this.done = true;
 		}
 	}
 
 	trigger() {
 		
+	}
+	
+	isDone() {
+		return false;
 	}
 
 }

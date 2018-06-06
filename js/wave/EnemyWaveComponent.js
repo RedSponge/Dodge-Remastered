@@ -10,6 +10,10 @@ class EnemyWaveComponent extends WaveComponent{
 		this.enemy.spawn();
 	}
 	
+	isDone() {
+		return this.enemy.dead;
+	}
+	
 	static delayComponent(delay) {
 		return new EnemyWaveComponent(new Enemy(-9999999999, -9999999999, 0, 0, "", 0, 0, false, 0), delay);
 	}

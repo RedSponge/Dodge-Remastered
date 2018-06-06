@@ -2,14 +2,17 @@ class Enemy extends Entity {
 	constructor(x, y, width, height, color, speedx, speedy, bouncesFromWalls, lifetime) {
 		super(x, y, width, height, color, speedx, speedy)
 		this.lifetime = lifetime;
+		this.dead = false;
 		this.bouncesFromWalls = bouncesFromWalls;
 	}
 	
 	spawn() {
+		console.log("I'm alive now!")
 		enemies[this.id] = this;
 	}
 	
 	kill() {
+		this.dead = true;
 		delete enemies[this.id]
 	}
 	

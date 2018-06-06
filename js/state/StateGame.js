@@ -29,6 +29,7 @@ class StateGame extends State {
 			this.wave.tick();
 			if(this.wave.done) {
 				this.currentWave++;
+				console.log("SWITCH");
 				this.wave = this.waves[this.currentWave]
 			}
 		} else {

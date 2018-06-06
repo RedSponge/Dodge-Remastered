@@ -17,9 +17,18 @@ class Wave {
 		this.components[this.currentlyRunning].tick();
 		if(this.components[this.currentlyRunning].done) {
 			this.currentlyRunning++;
+			console.log(this.components[this.currentlyRunning]);
 			if(this.components[this.currentlyRunning] == null) {
 				this.done = true;
 			}
+		}
+	}
+	
+	fullyDone() {
+		var testing = 0;
+		if(this.components[this.currentlyRunning].isDone()) {
+			testing++;
+			console.log("FINISHED ONE");
 		}
 	}
 	
@@ -46,12 +55,14 @@ const waves = {
 			var enemyVX = (i % 2 == 0)?speed:-speed;
 			wave.addEnemy(new Enemy(enemyX, enemyY, enemySize, enemySize, "red", enemyVX, 0, false, 1000), 10)
 		}
+		wave.addEnemy(new Enemy());
 		return wave;
 	},
 	"2": () => {
 		wave = new Wave();
 		wave.addComponent(EnemyWaveComponent.delayComponent(100));
 		wave.addComponent(new TextWaveComponent("Howdy", "32px Comic sans ms", 100, 100, 60, 100, 60, "black", 10));
+		wave.addEnemy(new Enemy(100, 100, 20, 20, "blue", 1, 1, false, 1000), 10);
 		return wave;
 	}
 }

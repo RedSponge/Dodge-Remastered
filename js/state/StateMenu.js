@@ -23,8 +23,20 @@ class StateMenu extends State {
 		ctx.font = "64px Comic sans ms"
 		ctx.textAlign = "center";
 		ctx.fillText("Dodge", WIDTH / 2, HEIGHT / 4)
-		ctx.font = "32px Comic sans ms";
-		ctx.fillText("Remastered", WIDTH / 2, HEIGHT / 4 * 1.3);
+		
+		ctx.font = "100px Capitals";
+		ctx.fillStyle = "lightblue";
+		
+		ctx.save();
+		
+		ctx.translate(WIDTH / 4*2.9, HEIGHT / 4 * 1.1)
+		ctx.rotate(-5 * Math.PI / 180)
+		ctx.fillText("I", 0, 0);
+		
+		ctx.rotate(10 * Math.PI / 180)
+		ctx.fillText("I", 20, 0);
+		
+		ctx.restore();
 		
 		this.startButton.render(ctx);
 		
